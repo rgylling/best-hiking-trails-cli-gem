@@ -5,28 +5,28 @@ class BestHikingTrails::Trail
   doc0 = Nokogiri::HTML(open("https://www.theoutbound.com/colorado/hiking/hike-to-hanging-lake"))
   title0 = doc0.search(".dynamic-height-container .adventure-description p").text
   @information_arr << title0
-  doc1 = Nokogiri::HTML(open("https://www.theoutbound.com/colorado/hiking/hike-to-hanging-lake"))
+  doc1 = Nokogiri::HTML(open("https://www.theoutbound.com/washington/hiking/hike-to-the-enchantments"))
   title1 = doc1.search(".dynamic-height-container .adventure-description p").text
     @information_arr << title1
-  doc2 = Nokogiri::HTML(open("https://www.theoutbound.com/colorado/hiking/hike-to-hanging-lake"))
+  doc2 = Nokogiri::HTML(open("https://www.theoutbound.com/utah/hiking/hike-angel-s-landing-at-night"))
   title2 = doc2.search(".dynamic-height-container .adventure-description p").text
     @information_arr << title2
-  doc3 = Nokogiri::HTML(open("https://www.theoutbound.com/colorado/hiking/hike-to-hanging-lake"))
+  doc3 = Nokogiri::HTML(open("https://www.theoutbound.com/oregon/hiking/hike-and-camp-at-smith-rock"))
   title3 = doc3.search(".dynamic-height-container .adventure-description p").text
     @information_arr << title3
-  doc4 = Nokogiri::HTML(open("https://www.theoutbound.com/colorado/hiking/hike-to-hanging-lake"))
+  doc4 = Nokogiri::HTML(open("https://www.theoutbound.com/north-carolina/backpacking/backpack-the-roan-highlands-appalachian-trail"))
   title4 = doc4.search(".dynamic-height-container .adventure-description p").text
     @information_arr << title4
-  doc5 = Nokogiri::HTML(open("https://www.theoutbound.com/colorado/hiking/hike-to-hanging-lake"))
+  doc5 = Nokogiri::HTML(open("https://www.theoutbound.com/washington/hiking/day-hike-gothic-basin"))
   title5 = doc5.search(".dynamic-height-container .adventure-description p").text
     @information_arr << title5
-  doc6 = Nokogiri::HTML(open("https://www.theoutbound.com/colorado/hiking/hike-to-hanging-lake"))
+  doc6 = Nokogiri::HTML(open("https://www.theoutbound.com/virginia/hiking/hike-to-spy-rock"))
   title6 = doc6.search(".dynamic-height-container .adventure-description p").text
     @information_arr << title6
-  doc7 = Nokogiri::HTML(open("https://www.theoutbound.com/colorado/hiking/hike-to-hanging-lake"))
+  doc7 = Nokogiri::HTML(open("https://www.theoutbound.com/yosemite/hiking/backpack-the-full-john-muir-trail"))
   title7 = doc7.search(".dynamic-height-container .adventure-description p").text
     @information_arr << title7
-  doc8 = Nokogiri::HTML(open("https://www.theoutbound.com/colorado/hiking/hike-to-hanging-lake"))
+  doc8 = Nokogiri::HTML(open("https://www.theoutbound.com/oregon/hiking/hiking-oneonta-gorge"))
   title8 = doc8.search(".dynamic-height-container .adventure-description p").text
     @information_arr << title8
   doc9 = Nokogiri::HTML(open("https://www.theoutbound.com/colorado/hiking/hike-to-hanging-lake"))
@@ -48,25 +48,16 @@ class BestHikingTrails::Trail
   end
 
   def self.scrape_best_trails
-    testing = []
+    trail_obj = []
     doc = Nokogiri::HTML(open("https://www.theoutbound.com/theoutbound/the-best-25-hikes-in-america"))
     trails = doc.xpath("//h3").each_with_index do |name, i|
       trail = self.new
       trail.name = name.content
       trail.information = @information_arr[i]
-      testing << trail
+      trail_obj << trail
       break if i == 9;
     end
-    testing
-
+    trail_obj
   end
-
-  #test to see how I will get more information on a specific hike
-  # doc2 = Nokogiri::HTML(open("https://www.theoutbound.com/colorado/hiking/hike-to-hanging-lake"))
-  # title = doc2.search(".dynamic-height-container .adventure-description p").text
-  # end
-
-
-
 
 end
