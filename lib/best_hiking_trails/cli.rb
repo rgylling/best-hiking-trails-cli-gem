@@ -11,7 +11,7 @@ class BestHikingTrails::CLI
     puts "The top 25 hiking trails"
     @trails = BestHikingTrails::Trail.today
     @trails.each.with_index(1) do |trail, i|
-      puts "#{i}. #{trail.name}, #{trail.location}"
+      puts "#{trail.name}"
     end
   end
 
@@ -22,7 +22,7 @@ class BestHikingTrails::CLI
       input = gets.strip
       if input.to_i > 0
         the_trail = @trails[input.to_i-1]
-        puts "#{the_trail.name}, #{the_trail.location}"
+        puts "#{the_trail.name}, #{the_trail.information}"
       elsif input == "list"
         list_trails
       else
