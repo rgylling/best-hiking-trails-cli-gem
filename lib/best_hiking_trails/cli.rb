@@ -10,6 +10,9 @@ class BestHikingTrails::CLI
     #get hiking trails ******FAKE INFO FOR NOW*****
     puts "The top 25 hiking trails"
     @trails = BestHikingTrails::Trail.today
+    @trails.each.with_index(1) do |trail, i|
+      puts "#{i}. #{trail.name}, #{trail.location}"
+    end
   end
 
   def trail_info
@@ -17,12 +20,9 @@ class BestHikingTrails::CLI
     while input != "exit"
       puts "Enter the number of the trail you would like more information on, list to relist the trails, or type exit to exit the program."
       input = gets.strip
-      case input
-        when "1"
-          puts "More info on trail 1"
-        when "2"
-          puts "More info on trail 2"
-        when "list"
+      if input.to_i > 0
+        puts @trails[input.to_i-1]
+      elsif input == "list"
         list_trails
       else
         puts "That is not an option :(, type list or exit"
