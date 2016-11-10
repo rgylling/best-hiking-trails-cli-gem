@@ -9,12 +9,7 @@ class BestHikingTrails::CLI
   def list_trails
     #get hiking trails ******FAKE INFO FOR NOW*****
     puts "The top 25 hiking trails"
-    puts <<-DOC.gsub /^\s*/, ''
-    1. Inca Trail
-    2. Appalachian Trail
-    3. Kilimanjaro
-    4. Kungsleden
-    DOC
+    @trails = BestHikingTrails::Trail.today
   end
 
   def trail_info
@@ -28,7 +23,9 @@ class BestHikingTrails::CLI
         when "2"
           puts "More info on trail 2"
         when "list"
-        list_trails  
+        list_trails
+      else
+        puts "That is not an option :(, type list or exit"
       end
     end
   end
