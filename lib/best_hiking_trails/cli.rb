@@ -21,7 +21,8 @@ class BestHikingTrails::CLI
       puts "Enter the number of the trail you would like more information on, list to relist the trails, or type exit to exit the program."
       input = gets.strip
       if input.to_i > 0
-        puts @trails[input.to_i-1]
+        the_trail = @trails[input.to_i-1]
+        puts "#{the_trail.name}, #{the_trail.location}"
       elsif input == "list"
         list_trails
       else

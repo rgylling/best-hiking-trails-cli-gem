@@ -3,23 +3,16 @@ class BestHikingTrails::Trail
   attr_accessor :name, :location
 
   def self.today
-    #return trails
-    # puts <<-DOC.gsub /^\s*/, ''
-    # 2. Appalachian Trail
-    # 3. Kilimanjaro
-    # 4. Kungsleden
-    # DOC
+    #scrape 25 best hiking trails and return that data
+    self.scrape_trails
+  end
 
-    #entering fake data
-    trail_1 = self.new
-    trail_1.name = "Inca Trail"
-    trail_1.location = "Peru"
+  def self.scrape_trails
+    trails = []
+    #go to 25 best hiking trails, extract the properties instantiate a trail
 
-    trail_2 = self.new
-    trail_2.name = "Appalachian Trail"
-    trail_2.location = "Georgia to Maine, United States"
+    trails
 
-    [trail_1, trail_2]
   end
 
 end
