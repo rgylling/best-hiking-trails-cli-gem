@@ -17,13 +17,13 @@ class BestHikingTrails::Trail
   end
 
   def self.scrape_best_trails
-    
+    trail_names = []
     doc = Nokogiri::HTML(open("https://www.theoutbound.com/theoutbound/the-best-25-hikes-in-america"))
     testing = doc.xpath("//h3").each_with_index do |name, i|
-      puts name.content
+      trail_names << name.content
       break if i == 24;
     end
-
+    trail_names
   end
 
 end
