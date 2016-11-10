@@ -7,9 +7,9 @@ class BestHikingTrails::CLI
   end
 
   def list_trails
-    #get hiking trails ******FAKE INFO FOR NOW*****
-    puts "The top 25 hiking trails"
-    @trails = BestHikingTrails::Trail.today
+
+    puts "The top 10 hiking trails"
+    @trails = BestHikingTrails::Trail.scrape
     @trails.each.with_index(1) do |trail, i|
       puts "#{trail.name}"
     end
