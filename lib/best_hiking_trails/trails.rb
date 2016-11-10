@@ -60,4 +60,15 @@ class BestHikingTrails::Trail
     trail_obj
   end
 
+  def self.testing
+    testing_arr = []
+    doc = Nokogiri::HTML(open("https://www.theoutbound.com/theoutbound/the-best-25-hikes-in-america"))
+    trails = doc.search(".description.story-content p").each_with_index do |name, i|
+    thisisatest = name.content.gsub("America is home to some of the most beautiful natural scenery in the world and while we definitely plan to indulge in the hot dogs, fireworks, and red white and blue everything, we think the best way to celebrate The Fourth of July is going out for a hike with friends and family. So head out on one of America's 25 Best Hikes or hit up your favorite local trail and celebrate the holiday weekend by getting outside!", "").gsub("Photo: Nicola Easterby", "").gsub("Photo: Mikaela Tangeman", "").gsub("Photo: Derrick Lyttle", "").gsub("Photo: Jessica Dales", "").gsub("Photo: Steve Yocom", "").gsub("Photo: Derek Cook", "").gsub("Photo: Christin Healey", "").gsub("Photo: Bo Baumgartner", "").gsub("Photo: Michael Matti", "").gsub("Photo: Adam Riquier", "").gsub("\n\n\n\n", "")
+    testing_arr << thisisatest
+    break if i == 10;
+    end
+    testing_arr[1]
+  end
+
 end
