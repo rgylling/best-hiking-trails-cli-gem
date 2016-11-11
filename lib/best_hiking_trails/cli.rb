@@ -24,8 +24,10 @@ class BestHikingTrails::CLI
         puts "#{the_trail.name}, #{the_trail.information}"
       elsif input == "list"
         list_trails
+      elsif input == "exit"
+        puts "Have a nice day!"
       else
-        puts "Unfortunately that is not an option, Enter list to relist the trails, or type exit to exit the program."
+        puts "Unfortunately that is not an option."
       end
     end
   end
