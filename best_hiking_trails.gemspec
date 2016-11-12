@@ -4,12 +4,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'best_hiking_trails/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "best_hiking_trails"
+  spec.name          = "best-hiking-trails"
   spec.version       = BestHikingTrails::VERSION
   spec.authors       = ["randy gylling"]
   spec.email         = ["mikegylling@yahoo.com"]
 
-  spec.summary       = "See the top 25 best hiking trails and their location"
+  spec.summary       = "See the top 10 best hiking trails and their location"
   spec.homepage      = "https://github.com/rgylling/best-hiking-trails-cli-gem"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -21,9 +21,9 @@ Gem::Specification.new do |spec|
   end
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
+  spec.executables   = ["best-hiking-trails"]
+  spec.require_paths = ["lib", "lib/best_hiking_trails"]
+  spec.license       = "MIT"
 
 
   spec.add_development_dependency "bundler", "~> 1.12"
