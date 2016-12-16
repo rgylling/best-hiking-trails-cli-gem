@@ -7,7 +7,7 @@ Best Hiking Trails is a web scraper with a CLI interface that shows you the top 
 Run the following command in your terminal:
 
 ```ruby
-gem install best_hiking_trails
+gem install best-hiking-trails
 ```
 
 ## Usage
